@@ -9,7 +9,7 @@ import { Loading, ErrorMessage } from '../components/Loading';
 import { searchIcon } from '../icons';
 import type { SortOption } from '../types';
 
-const ITEMS_PER_PAGE = 12;
+const ITEMS_PER_PAGE = 50;
 
 export const ProductsPage: React.FC = () => {
   const [searchQuery, setSearchQuery] = useState('');
