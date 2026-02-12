@@ -1,5 +1,7 @@
 # E-Commerce Product Catalog
 
+I deployed the repository and vercel and we can see the demo at https://harsha-vardhan-commbox-assignment.vercel.app/
+
 A modern, responsive e-commerce product catalog built with React, TypeScript, and Tailwind CSS. Features product browsing, searching, filtering, and detailed product views.
 
 ## 🚀 Features
