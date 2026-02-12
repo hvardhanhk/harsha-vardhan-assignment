@@ -1,4 +1,3 @@
-import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
 import { BrowserRouter } from 'react-router-dom';
 import { Button } from '../src/components/Button';
@@ -138,7 +137,10 @@ describe('ProductCard Component', () => {
     );
 
     expect(screen.getByText('Test Product')).toBeInTheDocument();
-    expect(screen.getByRole('img')).toHaveAttribute('alt', 'Test Product');
+    // There are multiple elements with role="img" (product image and rating), so select the correct one
+    const images = screen.getAllByRole('img');
+    const productImg = images.find(img => img.getAttribute('alt') === 'Test Product');
+    expect(productImg).toBeInTheDocument();
   });
 
   it('shows discounted price', () => {

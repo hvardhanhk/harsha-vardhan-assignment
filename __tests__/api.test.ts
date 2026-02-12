@@ -1,7 +1,7 @@
 import { productsAPI } from '../src/api/products';
 
 // Mock fetch globally
-global.fetch = jest.fn();
+(globalThis as any).fetch = jest.fn();
 
 describe('ProductsAPI', () => {
   beforeEach(() => {
@@ -20,7 +20,7 @@ describe('ProductsAPI', () => {
         limit: 30,
       };
 
-      (global.fetch as jest.Mock).mockResolvedValueOnce({
+      (globalThis.fetch as jest.Mock).mockResolvedValueOnce({
         ok: true,
         json: async () => mockResponse,
       });
@@ -42,7 +42,7 @@ describe('ProductsAPI', () => {
         limit: 30,
       };
 
-      (global.fetch as jest.Mock).mockResolvedValueOnce({
+      (globalThis.fetch as jest.Mock).mockResolvedValueOnce({
         ok: true,
         json: async () => mockResponse,
       });
@@ -62,7 +62,7 @@ describe('ProductsAPI', () => {
         limit: 30,
       };
 
-      (global.fetch as jest.Mock).mockResolvedValueOnce({
+      (globalThis.fetch as jest.Mock).mockResolvedValueOnce({
         ok: true,
         json: async () => mockResponse,
       });
@@ -75,7 +75,7 @@ describe('ProductsAPI', () => {
     });
 
     it('should handle API errors', async () => {
-      (global.fetch as jest.Mock).mockResolvedValueOnce({
+      (globalThis.fetch as jest.Mock).mockResolvedValueOnce({
         ok: false,
         status: 500,
       });
@@ -97,7 +97,7 @@ describe('ProductsAPI', () => {
         limit: 30,
       };
 
-      (global.fetch as jest.Mock).mockResolvedValueOnce({
+      (globalThis.fetch as jest.Mock).mockResolvedValueOnce({
         ok: true,
         json: async () => mockResponse,
       });
@@ -123,7 +123,7 @@ describe('ProductsAPI', () => {
         limit: 30,
       };
 
-      (global.fetch as jest.Mock).mockResolvedValueOnce({
+      (globalThis.fetch as jest.Mock).mockResolvedValueOnce({
         ok: true,
         json: async () => mockResponse,
       });
@@ -145,7 +145,7 @@ describe('ProductsAPI', () => {
         description: 'Test description',
       };
 
-      (global.fetch as jest.Mock).mockResolvedValueOnce({
+      (globalThis.fetch as jest.Mock).mockResolvedValueOnce({
         ok: true,
         json: async () => mockProduct,
       });
@@ -160,7 +160,7 @@ describe('ProductsAPI', () => {
     });
 
     it('should handle 404 errors', async () => {
-      (global.fetch as jest.Mock).mockResolvedValueOnce({
+      (globalThis.fetch as jest.Mock).mockResolvedValueOnce({
         ok: false,
         status: 404,
       });
@@ -178,7 +178,7 @@ describe('ProductsAPI', () => {
         { slug: 'laptops', name: 'Laptops', url: '' },
       ];
 
-      (global.fetch as jest.Mock).mockResolvedValueOnce({
+      (globalThis.fetch as jest.Mock).mockResolvedValueOnce({
         ok: true,
         json: async () => mockCategories,
       });
@@ -189,7 +189,7 @@ describe('ProductsAPI', () => {
     });
 
     it('should handle errors when fetching categories', async () => {
-      (global.fetch as jest.Mock).mockResolvedValueOnce({
+      (globalThis.fetch as jest.Mock).mockResolvedValueOnce({
         ok: false,
         status: 500,
       });
